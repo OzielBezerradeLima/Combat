@@ -1,5 +1,3 @@
-
-
 class Bomb:
 
     def __init__(self, tank, x, y, direction, life_span):
@@ -8,4 +6,3 @@ class Bomb:
         self.y = y
         self.direction = direction
         self.life_span = life_span
-

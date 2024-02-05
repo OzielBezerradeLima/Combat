@@ -1,7 +1,3 @@
-from bomb import Bomb
-import math
-
-
 class Tank:
 
     def __init__(self, player, x, y, direction):
@@ -55,9 +51,7 @@ class Tank:
 
     def move_bombs(self):
         for bomb in self.bombs:
-            if bomb['life_span'] == 0:
-                self.bombs.remove(bomb)
-            else:
+            while bomb['life_span'] > 0:
                 match bomb['direction']:
                     case 0:
                         bomb['x'] += 1
@@ -80,4 +74,5 @@ class Tank:
                         bomb['x'] -= 1
                         bomb['y'] += 1
                 bomb['life_span'] -= 1
-                print("Posição da bomba atirada pelo ", bomb['player']," [", bomb['x'], ", ", bomb['y'], "]")
+                print("Posição da bomba atirada pelo ", bomb['player'], " [", bomb['x'], ", ", bomb['y'], "]")
+            self.bombs.remove(bomb)
